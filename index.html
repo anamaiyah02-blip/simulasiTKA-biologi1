@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TKA Biologi 2026 — Klasifikasi & Keanekaragaman Hayati</title>
+<style>
+:root{--bg1:#e9f7f1;--bg2:#d6f0ec;--card:rgba(255,255,255,.78);--card2:rgba(255,255,255,.55);--tx:#0b2a24;--mut:#48685f;--line:rgba(11,90,72,.18);--em:#0f9d6e;--dk:#0a5c46;--teal:#0e8b95;--cy:#22d3ee;--sel:rgba(15,157,110,.13);--sh:0 10px 30px rgba(10,80,64,.12);--ok:#0f7a58;--no:#a35a2a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#04211c;--bg2:#06303a;--card:rgba(12,52,46,.72);--card2:rgba(12,52,46,.5);--tx:#e6f7f1;--mut:#9cc4b9;--line:rgba(120,230,200,.18);--sel:rgba(34,211,180,.16);--sh:0 10px 30px rgba(0,0,0,.35);--ok:#5ee0b3;--no:#e8a878}}
+:root[data-theme="dark"]{--bg1:#04211c;--bg2:#06303a;--card:rgba(12,52,46,.72);--card2:rgba(12,52,46,.5);--tx:#e6f7f1;--mut:#9cc4b9;--line:rgba(120,230,200,.18);--sel:rgba(34,211,180,.16);--sh:0 10px 30px rgba(0,0,0,.35);--ok:#5ee0b3;--no:#e8a878}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;background:linear-gradient(135deg,var(--bg1),var(--bg2));color:var(--tx);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;margin:0;line-height:1.15}
+.bgdeco{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.cell{position:absolute;border-radius:50%;border:1.5px solid var(--line);background:radial-gradient(circle at 35% 35%,rgba(34,211,238,.16),transparent 65%);animation:fl 14s ease-in-out infinite}
+.cell::after{content:"";position:absolute;width:28%;height:28%;left:38%;top:38%;border-radius:50%;background:var(--sel);border:1px solid var(--line)}
+@keyframes fl{50%{transform:translateY(-18px) scale(1.03)}}
+.wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:20px 16px 48px}
+.screen{display:none;animation:in .45s ease}.screen.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(10px)}}
+.glass{background:var(--card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh);padding:22px}
+.btn{font:inherit;font-weight:700;letter-spacing:.02em;border:1px solid var(--line);background:var(--card);color:var(--tx);padding:12px 22px;border-radius:999px;cursor:pointer;transition:transform .18s,box-shadow .18s,background .18s}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--sh)}.btn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.btn.pri{background:linear-gradient(120deg,var(--em),var(--teal));color:#fff;border:0}
+.btn.sm{padding:6px 14px;font-size:.85rem;font-weight:600}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+/* hero */
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;min-height:78vh}
+.kick{font-weight:700;color:var(--teal);letter-spacing:.08em;font-size:.85rem}
+.hero h1{font-size:clamp(2.6rem,8vw,4.6rem);color:var(--dk)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero h1{color:#7cf0c8}}
+:root[data-theme="dark"] .hero h1{color:#7cf0c8}
+.hero h2{font-size:clamp(1.1rem,3.4vw,1.6rem);margin:10px 0 14px;color:var(--teal);letter-spacing:.04em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 22px}
+.chip{padding:6px 13px;border-radius:999px;background:var(--card2);border:1px solid var(--line);font-size:.86rem}
+.helix{width:100%;max-width:300px;margin:auto;display:block}
+.helix .s{animation:sp 6s ease-in-out infinite}@keyframes sp{50%{opacity:.45}}
+@media(max-width:760px){.hero{grid-template-columns:1fr;min-height:auto;padding-top:16px}.helix{max-width:150px;order:-1}}
+/* generic */
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+.top h3{font-size:1.15rem}
+ol.pt{padding-left:1.2rem}ol.pt li{margin:8px 0}
+.demo{display:flex;flex-direction:column;gap:6px;margin:14px 0}
+.demo div{display:flex;gap:10px;align-items:center;padding:8px 12px;border-radius:12px;border:1px solid var(--line);background:var(--card2);font-size:.92rem}
+.demo .on{background:var(--sel);border-color:var(--em)}
+.bx{width:20px;height:20px;border:2px solid var(--em);border-radius:6px;display:inline-grid;place-items:center;flex:none;font-size:.8rem;color:#fff}
+.on .bx{background:var(--em)}
+label.f{display:block;font-weight:600;margin:14px 0 4px}
+input[type=text]{width:100%;font:inherit;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card2);color:var(--tx)}
+input[type=text]:focus{outline:2px solid var(--cy)}
+.err{color:var(--no);font-size:.9rem;min-height:1.2em}
+/* quiz */
+.bar{height:8px;border-radius:9px;background:var(--line);overflow:hidden}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--em),var(--cy));transition:width .6s ease}
+.meta{display:flex;justify-content:space-between;font-size:.88rem;color:var(--mut);margin:6px 0 10px;flex-wrap:wrap;gap:4px}
+.nav{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin:8px 0 16px}
+.nav button{font:inherit;font-weight:700;padding:8px 0;border-radius:10px;border:1px solid var(--line);background:var(--card2);color:var(--tx);cursor:pointer;transition:.18s}
+.nav button.ans{background:var(--sel);border-color:var(--em)}.nav button.cur{outline:2px solid var(--teal)}
+.leg{font-size:.82rem;color:var(--mut)}
+.qn{font-weight:800;color:var(--teal);letter-spacing:.06em}
+.qt{font-size:1.15rem;margin:2px 0 14px;color:var(--dk)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .qt{color:#7cf0c8}}
+:root[data-theme="dark"] .qt{color:#7cf0c8}
+.stim{margin:10px 0}.tw{overflow-x:auto;margin:12px 0;border-radius:12px;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:520px}
+th,td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--sel)}td:first-child{font-weight:600}
+.qq{font-weight:700;margin:16px 0 6px}.hint{font-size:.88rem;color:var(--mut);font-style:italic;margin-bottom:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;margin:8px 0;border:1px solid var(--line);border-radius:14px;background:var(--card2);cursor:pointer;transition:background .2s,border-color .2s,transform .15s}
+.opt:hover{transform:translateX(3px);border-color:var(--em)}
+.opt input{position:absolute;opacity:0}
+.opt .bx{margin-top:2px;transition:.2s;color:transparent}
+.opt.on{background:var(--sel);border-color:var(--em)}.opt.on .bx{background:var(--em);color:#fff;transform:scale(1.08)}
+.opt b{margin-right:4px}
+.saved{color:var(--ok);font-size:.86rem;height:1.2em;opacity:0;transition:opacity .3s}.saved.show{opacity:1}
+/* chart & scheme */
+.fig{margin:14px 0;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card2)}
+.fig h4{margin:0 0 10px;font-size:.95rem;text-align:center}.cap{font-size:.84rem;color:var(--mut);font-style:italic;text-align:center;margin-top:8px}
+.ch{display:grid;grid-template-columns:auto 1fr;gap:6px 8px}
+.yl{writing-mode:vertical-rl;transform:rotate(180deg);font-size:.75rem;color:var(--mut);text-align:center}
+.pl{position:relative;height:220px;border-left:2px solid var(--mut);border-bottom:2px solid var(--mut);display:flex;align-items:flex-end;justify-content:space-around;gap:6px;padding:0 4px}
+.gl{position:absolute;left:0;right:0;border-top:1px dashed var(--line);font-size:.68rem;color:var(--mut)}
+.gl span{position:absolute;left:4px;top:-1.15em}
+.bc{flex:1;max-width:90px;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;position:relative;z-index:1}
+.bc i{display:block;width:100%;border-radius:6px 6px 0 0;background:linear-gradient(180deg,var(--cy),var(--em));height:0;transition:height .9s cubic-bezier(.2,.8,.2,1)}
+.bc em{font-style:normal;font-size:.78rem;font-weight:700;margin-bottom:3px}
+.xl{grid-column:2;display:flex;justify-content:space-around;font-size:.8rem;gap:6px}.xl span{flex:1;max-width:90px;text-align:center}.xt{grid-column:2;text-align:center;font-size:.75rem;color:var(--mut)}
+.zones{display:grid;grid-template-columns:1fr 1fr 1fr;border-radius:12px;overflow:hidden;font-size:.86rem;text-align:center}
+.zn{padding:14px 8px}.zn h5{margin:0;font-size:.95rem}.zn small{display:block;font-style:italic;margin:4px 0 10px}.zn div{margin:5px 0}
+.z1{background:rgba(60,140,80,.22);color:var(--tx)}.z2{background:rgba(200,160,50,.25);border-left:4px dashed #c0533a;border-right:4px dashed #2d4a86}.z3{background:rgba(120,90,190,.22)}
+.zl{display:grid;grid-template-columns:1fr 1fr 1fr;font-size:.8rem;font-weight:700;margin-bottom:4px;text-align:center}
+.qnav{display:flex;justify-content:space-between;gap:10px;margin-top:20px;flex-wrap:wrap}
+/* result */
+.rs{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+.ring{width:170px;height:170px;position:relative}.ring svg{transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:12;stroke-linecap:round}.ring .bg{stroke:var(--line)}
+.ring .fg{stroke:url(#gr);stroke-dasharray:452;stroke-dashoffset:452;transition:stroke-dashoffset 1.6s ease}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font-size:2.4rem;font-family:Georgia,serif}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.stat{padding:12px;border-radius:14px;background:var(--card2);border:1px solid var(--line);text-align:center}.stat b{display:block;font-size:1.5rem}.stat span{font-size:.8rem;color:var(--mut)}
+.cat{display:inline-block;padding:4px 14px;border-radius:999px;background:var(--sel);border:1px solid var(--em);font-weight:700}
+@media(max-width:640px){.rs{grid-template-columns:1fr;justify-items:center;text-align:center}}
+.an{margin:10px 0}.an .l{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:4px}
+.acc{border:1px solid var(--line);border-radius:14px;margin:8px 0;background:var(--card2);overflow:hidden}
+.acc>button{width:100%;font:inherit;text-align:left;background:none;border:0;color:var(--tx);padding:13px 16px;cursor:pointer;display:flex;justify-content:space-between;gap:10px;font-weight:700}
+.acc .bd{display:none;padding:0 16px 16px;font-size:.94rem}.acc.open .bd{display:block;animation:in .3s}.acc.open>button span:last-child{transform:rotate(180deg)}
+.rv{margin:14px 0;padding:16px;border-radius:14px;border:1px solid var(--line);background:var(--card2)}
+.rv .o{padding:6px 10px;margin:5px 0;border-radius:10px;font-size:.92rem;border:1px solid transparent}
+.o.k{border-color:var(--ok);background:var(--sel)}.o.p{border-style:dashed;border-color:var(--no)}
+.tag{font-size:.74rem;font-weight:700;margin-left:6px;color:var(--mut)}
+.okc{color:var(--ok);font-weight:700}.nok{color:var(--no);font-weight:700}
+.pb{background:var(--sel);border-left:4px solid var(--em);padding:10px 14px;border-radius:0 12px 12px 0;margin-top:8px;font-size:.92rem}
+/* modal */
+.md{position:fixed;inset:0;background:rgba(3,25,22,.55);display:none;place-items:center;z-index:50;padding:16px}.md.on{display:grid;animation:in .25s}
+.md .glass{max-width:460px;width:100%;background:var(--bg1);}
+.md p{margin:10px 0 18px}
+.toast{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--dk);color:#fff;padding:8px 18px;border-radius:999px;font-size:.85rem;opacity:0;transition:opacity .3s;z-index:60;pointer-events:none}.toast.show{opacity:1}
+</style>
+</head>
+<body>
+<div class="bgdeco" aria-hidden="true">
+<div class="cell" style="width:220px;height:220px;left:-60px;top:8%"></div>
+<div class="cell" style="width:140px;height:140px;right:6%;top:55%;animation-delay:-4s"></div>
+<div class="cell" style="width:320px;height:320px;right:-120px;top:-60px;animation-delay:-8s"></div>
+</div>
+<div class="wrap">
+
+<section class="screen on" id="s-home">
+<div class="hero">
+<div>
+<div class="kick">SMA/MA · FASE E–F</div>
+<h1>TKA BIOLOGI 2026</h1>
+<h2>KLASIFIKASI &amp; KEANEKARAGAMAN HAYATI</h2>
+<p>Uji kemampuan analisis dan penalaran Biologi melalui stimulus tabel, grafik, skema, dan kasus ilmiah.</p>
+<div class="chips"><span class="chip">10 Soal Pilihan Ganda Kompleks</span><span class="chip">Level: Penerapan &amp; Penalaran</span><span class="chip">Plantae • Animalia • Fungi</span></div>
+<div class="row"><button class="btn pri" onclick="go('s-id')">MULAI SIMULASI</button><button class="btn" onclick="go('s-help')">PETUNJUK</button><button class="btn sm" onclick="openDev()">PROFIL PENGEMBANG</button></div>
+<p class="leg" style="margin-top:18px">Latihan Tes Kemampuan Akademik Biologi SMA/MA</p>
+</div>
+<svg class="helix" id="helix" viewBox="0 0 200 320" aria-hidden="true"></svg>
+</div>
+</section>
+
+<section class="screen" id="s-help">
+<div class="top"><h3>PETUNJUK</h3><button class="btn sm" onclick="go('s-home')">← Beranda</button></div>
+<div class="glass">
+<ol class="pt">
+<li>Bacalah setiap stimulus dengan cermat.</li><li>Setiap soal memiliki 5 pilihan jawaban.</li><li>Jawaban benar dapat lebih dari satu.</li><li>Pilih SEMUA jawaban yang menurut Anda benar.</li><li>Skor penuh hanya diberikan jika seluruh jawaban benar dipilih tanpa ada pilihan yang salah.</li><li>Soal menggunakan stimulus berupa teks, tabel, grafik, skema, dan kasus ilmiah.</li><li>Kerjakan dengan teliti karena soal menuntut kemampuan penerapan dan penalaran.</li>
+</ol>
+<b>Contoh Pilihan Ganda Kompleks</b>
+<div class="demo"><div class="on"><span class="bx">✓</span>A. Pernyataan yang benar</div><div><span class="bx"></span>B. Pernyataan yang keliru</div><div class="on"><span class="bx">✓</span>C. Pernyataan yang benar lainnya</div></div>
+<p class="leg">Lebih dari satu kotak dapat dicentang. Skor 1 diberikan bila semua opsi benar terpilih dan tidak ada opsi salah yang terpilih.</p>
+<button class="btn pri" onclick="go('s-id')">MULAI SIMULASI</button>
+</div>
+</section>
+
+<section class="screen" id="s-id">
+<div class="top"><h3>IDENTITAS PESERTA</h3><button class="btn sm" onclick="go('s-home')">← Beranda</button></div>
+<div class="glass" style="max-width:520px;margin:auto">
+<label class="f" for="i-n">Nama Peserta</label><input type="text" id="i-n" autocomplete="name">
+<label class="f" for="i-k">Kelas</label><input type="text" id="i-k">
+<label class="f" for="i-s">Asal Sekolah</label><input type="text" id="i-s">
+<div class="err" id="i-e"></div>
+<button class="btn pri" onclick="startQ()">MULAI TKA</button>
+</div>
+</section>
+
+<section class="screen" id="s-quiz">
+<div class="top"><h3>TKA BIOLOGI 2026</h3><button class="btn sm" onclick="openDev()">Pengembang</button></div>
+<div class="meta"><span id="q-pos">Soal 1 dari 10</span><span id="q-pct">Progress 0%</span></div>
+<div class="bar"><i id="q-bar"></i></div>
+<div class="nav" id="q-nav"></div>
+<div class="leg">● Sudah dijawab &nbsp; ○ Belum dijawab</div>
+<div class="glass" id="q-card" style="margin-top:12px"></div>
+</section>
+
+<section class="screen" id="s-res">
+<div class="top"><h3>HASIL SIMULASI TKA BIOLOGI</h3></div>
+<div class="glass">
+<div class="rs">
+<div class="ring"><svg width="170" height="170" viewBox="0 0 170 170"><defs><linearGradient id="gr"><stop offset="0" stop-color="#0f9d6e"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs><circle class="bg" cx="85" cy="85" r="72"/><circle class="fg" id="r-fg" cx="85" cy="85" r="72"/></svg><b id="r-sc">0</b></div>
+<div>
+<div><b id="r-name"></b><br><span class="leg" id="r-info"></span></div>
+<p style="margin:10px 0 6px">Skor: <b id="r-sc2"></b> / 100 &nbsp; <span class="cat" id="r-cat"></span></p>
+<p id="r-msg" style="margin:6px 0"></p>
+</div>
+</div>
+<div class="stats" id="r-stats"></div>
+</div>
+<div class="glass" style="margin-top:14px"><h3 style="margin-bottom:10px">Analisis Penguasaan Materi</h3><div id="r-an"></div></div>
+<div class="glass" style="margin-top:14px"><h3 style="margin-bottom:10px">Pembahasan Soal</h3><div id="r-acc"></div></div>
+<div class="row" style="margin-top:16px"><button class="btn pri" onclick="showReview()">REVIEW JAWABAN</button><button class="btn" onclick="askReset()">ULANGI SIMULASI</button><button class="btn sm" onclick="openDev()">PROFIL PENGEMBANG</button></div>
+</section>
+
+<section class="screen" id="s-rev">
+<div class="top"><h3>REVIEW JAWABAN</h3><button class="btn sm" onclick="go('s-res')">← Hasil</button></div>
+<div id="rv-list"></div>
+<button class="btn" onclick="go('s-res');window.scrollTo(0,0)">← Kembali ke Hasil</button>
+</section>
+</div>
+
+<div class="md" id="m-dev"><div class="glass"><h3>PENGEMBANG</h3><p><b>Ana Triana Maiyah, S.Pd., M.Si.</b><br>Guru Biologi<br>SMA Negeri 2 Kalianda</p><p>Media pembelajaran ini dikembangkan sebagai sarana latihan dan penguatan kemampuan analisis peserta didik dalam menghadapi Tes Kemampuan Akademik (TKA) Biologi.</p><button class="btn pri" onclick="closeM('m-dev')">Tutup</button></div></div>
+<div class="md" id="m-cf"><div class="glass"><h3 id="cf-t"></h3><p id="cf-p"></p><div class="row"><button class="btn" id="cf-no"></button><button class="btn pri" id="cf-ok"></button></div></div></div>
+<div class="toast" id="toast">Jawaban Anda telah disimpan.</div>
+
+<script>
+const Q=[{"id": 1, "topic": "Menganalisis prinsip klasifikasi tumbuhan (Plantae)", "stimulus": [{"t": "p", "text": "Perhatikan tabel ciri pembeda empat kelompok tumbuhan berikut."}, {"t": "table", "rows": [["Ciri", "Bryophyta (lumut)", "Pteridophyta (paku)", "Gymnospermae", "Angiospermae"], ["Akar, batang, daun sejati", "Tidak ada", "Ada", "Ada", "Ada"], ["Sistem pembuluh angkut", "Tidak ada", "Ada", "Ada", "Ada"], ["Alat perkembangbiakan", "Spora", "Spora", "Biji dalam runjung (tidak tertutup bakal buah)", "Biji tertutup bakal buah/buah"], ["Bunga sejati", "Tidak ada", "Tidak ada", "Tidak ada", "Ada"]]}, {"t": "p", "text": "Pada tahun 2025, tim peneliti mengumumkan penemuan anggrek tanpa daun jenis baru, Chiloschista tjiasmantoi, di Aceh. Uniknya, tumbuhan ini tetap mampu berfotosintesis melalui akarnya yang berwarna hijau meskipun sama sekali tidak memiliki daun."}], "question": "Berdasarkan tabel ciri kelompok tumbuhan dan kasus tersebut, pernyataan manakah yang tepat?", "options": [{"id": "A", "text": "Anggrek tersebut tetap digolongkan ke dalam kelompok Angiospermae karena memiliki bunga sejati dan biji yang dilindungi bakal buah, bukan berdasarkan ada tidaknya daun."}, {"id": "B", "text": "Ketiadaan daun pada anggrek tersebut menyebabkannya harus dipindahkan dari kelompok Angiospermae ke kelompok Pteridophyta karena kehilangan salah satu organ vegetatif utama."}, {"id": "C", "text": "Kemampuan akar berwarna hijau melakukan fotosintesis menunjukkan adanya adaptasi struktural yang menggantikan fungsi daun tanpa mengubah status taksonominya sebagai tumbuhan berbunga."}, {"id": "D", "text": "Penemuan tersebut membuktikan bahwa keberadaan sistem pembuluh angkut bukan lagi ciri pembeda utama antara Pteridophyta dan Angiospermae."}, {"id": "E", "text": "Klasifikasi tumbuhan berbunga semacam ini tetap mengacu pada struktur reproduksi generatif berupa bunga dan biji berbakal buah, bukan pada kelengkapan organ vegetatif seperti daun."}]}, {"id": 2, "topic": "Menganalisis keanekaragaman hayati tingkat gen (Plantae)", "stimulus": [{"t": "p", "text": "Perhatikan grafik jumlah varietas padi lokal yang masih dibudidayakan petani di suatu wilayah sentra pertanian di Indonesia dari tahun 1980 hingga 2025 berikut."}, {"t": "fig", "cap": "Gambar 1. Penurunan jumlah varietas padi lokal (data ilustratif)"}], "question": "Berdasarkan grafik tersebut, pernyataan manakah yang tepat mengenai fenomena yang digambarkan?", "options": [{"id": "A", "text": "Penurunan jumlah varietas padi lokal yang dibudidayakan menggambarkan terjadinya erosi genetik pada tingkat keanekaragaman gen dalam spesies Oryza sativa."}, {"id": "B", "text": "Fenomena ini tidak berkaitan dengan konsep keanekaragaman hayati karena seluruh varietas padi tetap tergolong dalam satu spesies yang sama."}, {"id": "C", "text": "Penyeragaman varietas unggul secara luas dapat meningkatkan risiko kerentanan tanaman terhadap serangan hama atau penyakit akibat berkurangnya variasi gen ketahanan."}, {"id": "D", "text": "Pelestarian bank benih (seed bank) lokal merupakan salah satu upaya yang dapat dilakukan untuk mempertahankan keanekaragaman gen padi yang mulai berkurang tersebut."}, {"id": "E", "text": "Hilangnya varietas lokal sama sekali tidak memengaruhi ketahanan pangan jangka panjang karena varietas unggul nasional sudah cukup memenuhi kebutuhan produksi."}]}, {"id": 3, "topic": "Menganalisis prinsip klasifikasi hewan vertebrata (Animalia)", "stimulus": [{"t": "p", "text": "Perhatikan tabel ciri pembeda lima kelas vertebrata berikut."}, {"t": "table", "rows": [["Ciri", "Pisces", "Amphibia", "Reptilia", "Aves", "Mammalia"], ["Penutup tubuh", "Sisik", "Kulit licin berlendir", "Sisik kering", "Bulu", "Rambut"], ["Alat pernapasan", "Insang", "Insang (muda) & paru-paru/kulit (dewasa)", "Paru-paru", "Paru-paru & pundi udara", "Paru-paru"], ["Suhu tubuh", "Poikiloterm", "Poikiloterm", "Poikiloterm", "Homoiterm", "Homoiterm"], ["Perkembangan", "Eksternal, ovipar", "Eksternal, ovipar (metamorfosis)", "Internal, ovipar/ovovivipar", "Internal, ovipar", "Internal, umumnya vivipar"]]}, {"t": "p", "text": "Seekor hewan hasil pengamatan lapangan memiliki ciri berikut: kulit licin dan selalu lembap, bernapas dengan insang pada fase muda serta paru-paru dan kulit pada fase dewasa, bersifat poikiloterm, dan mengalami metamorfosis sempurna dari fase akuatik menuju fase daratan."}], "question": "Berdasarkan tabel ciri kelompok vertebrata tersebut, pernyataan manakah yang tepat mengenai klasifikasi hewan tersebut?", "options": [{"id": "A", "text": "Hewan tersebut paling tepat digolongkan ke dalam kelas Amphibia karena menunjukkan seluruh ciri khas kelompok tersebut, termasuk metamorfosis dan pernapasan ganda."}, {"id": "B", "text": "Sifat poikiloterm pada hewan tersebut menunjukkan bahwa suhu tubuhnya senantiasa tetap dan tidak dipengaruhi oleh suhu lingkungan sekitarnya."}, {"id": "C", "text": "Perubahan alat pernapasan dari insang menuju paru-paru dan kulit selama proses metamorfosis merupakan ciri khas siklus hidup kelas Amphibia."}, {"id": "D", "text": "Hewan dengan ciri tersebut tidak mungkin tergolong vertebrata karena tidak memiliki penutup tubuh berupa sisik, bulu, maupun rambut."}, {"id": "E", "text": "Ketergantungan pada lingkungan lembap dan perairan untuk reproduksi menunjukkan bahwa hewan tersebut belum sepenuhnya beradaptasi terhadap kehidupan di darat, sebagaimana ciri umum kelas Amphibia."}]}, {"id": 4, "topic": "Menganalisis konsep spesies & tata nama ilmiah (Animalia)", "stimulus": [{"t": "p", "text": "Pada Juli 2025, tim peneliti gabungan Badan Riset dan Inovasi Nasional (BRIN), Aichi University of Education, Kyoto University, dan Universitas Palangka Raya mengumumkan penemuan dua spesies baru katak bertaring dari famili Dicroglossidae di kawasan Pegunungan Meratus, Kalimantan. Kedua spesies tersebut diberi nama ilmiah Limnonectes maanyanorum dan Limnonectes nusantara. Sebelumnya, populasi katak di kawasan tersebut dianggap sebagai bagian dari satu spesies yang sudah dikenal luas, yaitu Limnonectes kuhlii. Melalui analisis morfologi dan genetik yang lebih mendalam, para peneliti membuktikan bahwa populasi tersebut sebenarnya terdiri atas tiga spesies berbeda yang secara sekilas tampak serupa (spesies kriptik)."}], "question": "Berdasarkan uraian kasus tersebut, pernyataan manakah yang tepat?", "options": [{"id": "A", "text": "Ketiga jenis katak tersebut (L. kuhlii, L. maanyanorum, dan L. nusantara) tergolong dalam genus yang sama namun merupakan spesies berbeda, sesuai aturan penulisan nama ilmiah (binomial nomenklatur)."}, {"id": "B", "text": "Fenomena spesies kriptik menunjukkan bahwa kemiripan ciri morfologi yang tampak dari luar tidak selalu mencerminkan hubungan kekerabatan atau status spesies yang sesungguhnya secara genetik."}, {"id": "C", "text": "Penemuan ini menegaskan pentingnya kombinasi data morfologi dan genetik dalam menentukan status taksonomi suatu organisme, tidak cukup hanya mengandalkan pengamatan fisik semata."}, {"id": "D", "text": "Karena ketiganya memiliki ciri morfologi yang mirip, ketiga jenis katak tersebut seharusnya tetap digolongkan sebagai satu spesies yang sama demi kesederhanaan klasifikasi."}, {"id": "E", "text": "Penamaan nusantara pada salah satu jenis katak baru tersebut menunjukkan penghormatan terhadap asal wilayah penemuan, sesuai kelaziman pemberian epitet spesies dalam taksonomi."}]}, {"id": 5, "topic": "Menganalisis prinsip klasifikasi jamur (Fungi)", "stimulus": [{"t": "p", "text": "Perhatikan tabel klasifikasi jamur berikut."}, {"t": "table", "rows": [["Ciri", "Zygomycota", "Ascomycota", "Basidiomycota", "Deuteromycota"], ["Hifa", "Tidak bersekat (senositik)", "Bersekat", "Bersekat", "Bersekat"], ["Reproduksi seksual", "Zigospora", "Askospora (dalam askus)", "Basidiospora (pada basidium)", "Belum/tidak teramati"], ["Reproduksi aseksual", "Sporangiospora", "Konidia", "Konidia/tunas", "Konidia"], ["Contoh", "Rhizopus oryzae", "Saccharomyces cerevisiae", "Volvariella volvacea", "Epidermophyton sp."]]}], "question": "Berdasarkan tabel klasifikasi jamur tersebut, pernyataan manakah yang tepat?", "options": [{"id": "A", "text": "Rhizopus oryzae yang berperan dalam fermentasi tempe digolongkan ke dalam Zygomycota karena memiliki hifa tidak bersekat dan menghasilkan zigospora sebagai alat reproduksi seksualnya."}, {"id": "B", "text": "Deuteromycota disebut sebagai “jamur tidak sempurna” karena tahapan reproduksi seksualnya belum atau tidak pernah teramati oleh para peneliti."}, {"id": "C", "text": "Basidiospora yang dihasilkan pada struktur basidium merupakan ciri khas reproduksi seksual kelompok Basidiomycota, seperti pada jamur merang."}, {"id": "D", "text": "Seluruh anggota kelompok jamur pada tabel tersebut bersifat merugikan bagi manusia karena tergolong mikroorganisme penyebab penyakit."}, {"id": "E", "text": "Hifa tidak bersekat pada Zygomycota menyebabkan tiap selnya memiliki inti tunggal yang terpisah jelas dari sel-sel di sekitarnya, berbeda dengan Ascomycota."}]}, {"id": 6, "topic": "Menganalisis keanekaragaman & klasifikasi jamur (Fungi)", "stimulus": [{"t": "p", "text": "Pada tahun 2025, tim peneliti mendeskripsikan secara resmi jenis jamur morel tropis pertama di dunia yang diberi nama Morchella rinjaniensis, ditemukan di kawasan Gunung Rinjani, Nusa Tenggara Barat. Sebelumnya, jamur morel (genus Morchella) dikenal luas hanya tumbuh di kawasan beriklim sedang atau subtropis, sehingga penemuan jenis tropis ini dianggap sebagai catatan penting dalam dunia mikologi. Morchella termasuk kelompok jamur berhifa bersekat yang membentuk tubuh buah menyerupai sarang lebah dan menghasilkan spora seksual di dalam askus."}], "question": "Berdasarkan uraian tersebut, pernyataan manakah yang tepat mengenai Morchella rinjaniensis?", "options": [{"id": "A", "text": "Berdasarkan ciri pembentukan spora seksual di dalam askus, Morchella rinjaniensis dapat digolongkan ke dalam divisi Ascomycota."}, {"id": "B", "text": "Penemuan jenis morel tropis pertama ini memperluas pengetahuan mengenai persebaran geografis genus Morchella yang sebelumnya dianggap hanya terbatas pada wilayah beriklim sedang."}, {"id": "C", "text": "Karena morel umumnya ditemukan di kawasan beriklim sedang, penamaan Morchella rinjaniensis sebagai jenis tropis pertama menunjukkan adanya penyimpangan klasifikasi dari genus aslinya."}, {"id": "D", "text": "Penemuan spesies baru semacam ini menegaskan bahwa kawasan pegunungan tropis Indonesia masih menyimpan keanekaragaman hayati mikroorganisme yang belum seluruhnya terdokumentasikan."}, {"id": "E", "text": "Status tropis pada jenis jamur ini menunjukkan bahwa spesies tersebut tidak lagi memiliki kekerabatan taksonomi dengan anggota genus Morchella lainnya."}]}, {"id": 7, "topic": "Menganalisis persebaran keanekaragaman hayati Indonesia", "stimulus": [{"t": "p", "text": "Perhatikan skema pembagian wilayah fauna Indonesia berdasarkan garis Wallace dan garis Weber berikut."}, {"t": "fig", "cap": "Gambar 2. Skema pembagian wilayah fauna Indonesia (ilustratif, bukan peta geografis presisi)"}], "question": "Berdasarkan skema tersebut, pernyataan manakah yang tepat mengenai persebaran fauna Indonesia?", "options": [{"id": "A", "text": "Wilayah fauna Asiatis di sebelah barat garis Wallace dicirikan oleh kemiripan dengan fauna benua Asia, seperti gajah, harimau, dan badak bercula satu."}, {"id": "B", "text": "Garis Wallace memisahkan wilayah fauna Asiatis dan fauna peralihan, sedangkan garis Weber memisahkan wilayah fauna peralihan dan fauna Australis."}, {"id": "C", "text": "Wilayah fauna peralihan di antara kedua garis tersebut memiliki fauna endemik khas, seperti anoa, babirusa, dan komodo, yang tidak ditemukan di dua wilayah lainnya."}, {"id": "D", "text": "Seluruh fauna yang berada di sebelah timur garis Weber tergolong fauna Asiatis karena masih berada dalam satu wilayah kepulauan Indonesia."}, {"id": "E", "text": "Fauna Australis di sebelah timur garis Weber menunjukkan kemiripan ciri dengan fauna benua Australia, seperti kanguru pohon dan burung cendrawasih."}]}, {"id": 8, "topic": "Menganalisis keanekaragaman jenis & konservasi (Animalia)", "stimulus": [{"t": "p", "text": "Perhatikan grafik estimasi populasi orangutan Kalimantan (Pongo pygmaeus) pada tahun 1973 dan 2012 berikut."}, {"t": "fig", "cap": "Gambar 3. Estimasi populasi orangutan Kalimantan, 1973 dan 2012 (sumber: IUCN/Max Planck Institute)"}, {"t": "p", "text": "Indonesia memiliki tiga spesies orangutan, yaitu orangutan Kalimantan (Pongo pygmaeus), orangutan Sumatra (Pongo abelii), dan orangutan Tapanuli (Pongo tapanuliensis) yang baru dideskripsikan sebagai spesies tersendiri pada tahun 2017. Ketiganya berstatus kritis (critically endangered) menurut IUCN akibat degradasi dan fragmentasi habitat, terutama akibat alih fungsi hutan menjadi area perkebunan."}], "question": "Berdasarkan data dan informasi tersebut, pernyataan manakah yang tepat?", "options": [{"id": "A", "text": "Data pada grafik menunjukkan penurunan populasi orangutan Kalimantan lebih dari separuh jumlah populasi awal dalam rentang waktu sekitar empat dekade."}, {"id": "B", "text": "Penetapan orangutan Tapanuli sebagai spesies tersendiri, terpisah dari orangutan Sumatra, menunjukkan bahwa klasifikasi takson dapat berubah seiring perkembangan bukti ilmiah baru."}, {"id": "C", "text": "Ketiga spesies orangutan tersebut berstatus kritis karena degradasi habitat akibat alih fungsi hutan, sehingga upaya konservasi habitat menjadi sangat mendesak dilakukan."}, {"id": "D", "text": "Karena ketiga jenis orangutan tersebut mirip secara morfologi, klasifikasi menjadi tiga spesies terpisah sebenarnya tidak diperlukan dan hanya memperumit tata nama ilmiah."}, {"id": "E", "text": "Keanekaragaman jenis pada tingkat genus Pongo di Indonesia tercermin dari keberadaan tiga spesies orangutan yang berbeda tersebut, masing-masing dengan sebaran wilayah tersendiri."}]}, {"id": 9, "topic": "Menganalisis keanekaragaman jenis & konservasi flora (Plantae)", "stimulus": [{"t": "p", "text": "Perhatikan tabel data beberapa tumbuhan obat endemik Indonesia berikut."}, {"t": "table", "rows": [["Nama Tumbuhan", "Daerah Asal", "Pemanfaatan", "Status Ancaman"], ["Pasak bumi (Eurycoma longifolia)", "Sumatra, Kalimantan", "Obat tradisional peningkat stamina", "Rentan — eksploitasi akar berlebihan"], ["Purwoceng (Pimpinella pruatjan)", "Dataran tinggi Dieng, Jawa Tengah", "Obat tradisional, afrodisiak", "Terancam punah — habitat terbatas"], ["Pule pandak (Rauvolfia serpentina)", "Jawa, Sumatra", "Obat tradisional penurun tekanan darah", "Rentan — perdagangan akar liar"], ["Kayu putih hutan Timor (Melaleuca spp.)", "Nusa Tenggara Timur", "Minyak atsiri, obat tradisional", "Rentan — alih fungsi lahan"]]}], "question": "Berdasarkan data pada tabel tersebut, pernyataan manakah yang tepat mengenai kondisi tanaman obat endemik Indonesia?", "options": [{"id": "A", "text": "Sebagian besar tanaman obat pada tabel tersebut terancam akibat pengambilan bagian tumbuhan, seperti akar, secara berlebihan dari alam tanpa upaya budi daya yang memadai."}, {"id": "B", "text": "Nilai kegunaan tanaman obat tersebut bagi manusia menjadikannya tidak mungkin mengalami kepunahan karena manusia akan senantiasa menjaga kelestariannya demi kepentingan sendiri."}, {"id": "C", "text": "Purwoceng menghadapi ancaman kepunahan yang lebih serius dibandingkan pasak bumi, salah satunya karena wilayah persebaran alaminya yang jauh lebih terbatas."}, {"id": "D", "text": "Upaya budi daya dan domestikasi tanaman obat endemik dapat menjadi salah satu solusi untuk mengurangi tekanan eksploitasi terhadap populasi alaminya."}, {"id": "E", "text": "Keberadaan tanaman-tanaman tersebut menggambarkan keanekaragaman hayati tingkat jenis yang dimiliki Indonesia, sekaligus pentingnya upaya konservasi flora endemik."}]}, {"id": 10, "topic": "Menganalisis prinsip klasifikasi & tata nama ilmiah", "stimulus": [{"t": "p", "text": "Sepanjang tahun 2025, Pusat Riset Biosistematika dan Evolusi (PRBE) BRIN melaporkan penemuan 51 spesies baru, dengan 49 di antaranya berasal dari wilayah Indonesia. Grafik berikut menunjukkan sebaran jumlah temuan tersebut berdasarkan kelompok organisme."}, {"t": "fig", "cap": "Gambar 4. Sebaran temuan spesies baru PRBE BRIN tahun 2025 berdasarkan kelompok organisme"}], "question": "Berdasarkan data tersebut serta prinsip klasifikasi dan tata nama ilmiah (binomial nomenklatur), pernyataan manakah yang tepat?", "options": [{"id": "A", "text": "Kelompok fauna menyumbang jumlah temuan spesies baru terbanyak dibandingkan kelompok flora maupun mikroba pada laporan tersebut."}, {"id": "B", "text": "Setiap spesies baru yang dideskripsikan tersebut diberi nama ilmiah terdiri atas dua kata sesuai sistem binomial nomenklatur, yaitu nama genus diikuti nama penunjuk spesies."}, {"id": "C", "text": "Tingginya jumlah spesies baru yang ditemukan menunjukkan bahwa dokumentasi keanekaragaman hayati Indonesia sudah lengkap dan tidak memerlukan eksplorasi lebih lanjut."}, {"id": "D", "text": "Banyaknya temuan spesies baru dari berbagai pulau di Indonesia menegaskan status negara ini sebagai salah satu pusat keanekaragaman hayati dunia (megabiodiversitas)."}, {"id": "E", "text": "Penulisan nama ilmiah spesies baru tersebut mengikuti kaidah penulisan huruf miring (italic) dengan huruf awal kata penunjuk genus menggunakan huruf kapital."}]}];
+const K64="eyIxIjogeyJhIjogWyJBIiwgIkMiLCAiRSJdLCAiZSI6ICJLbGFzaWZpa2FzaSB0dW1idWhhbiBiZXJidW5nYSAoQW5naW9zcGVybWFlKSBkaWRhc2Fya2FuIHBhZGEgc3RydWt0dXIgcmVwcm9kdWtzaSBnZW5lcmF0aWYsIHlhaXR1IGJ1bmdhIHNlamF0aSBkYW4gYmlqaSB5YW5nIHRlcnR1dHVwIGJha2FsIGJ1YWgsIGJ1a2FuIHBhZGEga2VsZW5na2FwYW4gb3JnYW4gdmVnZXRhdGlmIHNlcGVydGkgZGF1biAoQSBkYW4gRSBiZW5hcikuIEtlbWFtcHVhbiBha2FyIGJlcndhcm5hIGhpamF1IGJlcmZvdG9zaW50ZXNpcyBtZXJ1cGFrYW4gYmVudHVrIGFkYXB0YXNpIHN0cnVrdHVyYWwgeWFuZyBtZW5nZ2FudGlrYW4gZnVuZ3NpIGRhdW4gdGFucGEgbWVuZ3ViYWggc3RhdHVzIHRha3Nvbm9taW55YSAoQyBiZW5hcikuIFBlcm55YXRhYW4gQiBrZWxpcnUga2FyZW5hIFB0ZXJpZG9waHl0YSAodHVtYnVoYW4gcGFrdSkgYmVya2VtYmFuZyBiaWFrIGRlbmdhbiBzcG9yYSwgYnVrYW4gYmlqaSBkYW4gYnVuZ2EsIHNlaGluZ2dhIGFuZ2dyZWsgeWFuZyBiZXJidW5nYSBkYW4gYmVyYmlqaSB0aWRhayBtdW5na2luIGRpZ29sb25na2FuIGtlIGtlbG9tcG9rIHRlcnNlYnV0LiBQZXJueWF0YWFuIEQga2VsaXJ1IGthcmVuYSBrYXN1cyBpbmkgaGFueWEgbWVudW5qdWtrYW4gdmFyaWFzaSBvcmdhbiB2ZWdldGF0aWYgcGFkYSBzYXR1IHNwZXNpZXMsIGJ1a2FuIG1lbmlhZGFrYW4gY2lyaSBzaXN0ZW0gcGVtYnVsdWggYW5na3V0IHNlYmFnYWkgcGVtYmVkYSB1bXVtIGFudGFya2Vsb21wb2sgdHVtYnVoYW4uIn0sICIyIjogeyJhIjogWyJBIiwgIkMiLCAiRCJdLCAiZSI6ICJQZW51cnVuYW4ganVtbGFoIHZhcmlldGFzIHBhZGkgbG9rYWwgbWVuY2VybWlua2FuIGVyb3NpIGdlbmV0aWssIHlhaXR1IGhpbGFuZ255YSB2YXJpYXNpIHBhZGEgdGluZ2thdCBnZW4gZGFsYW0gc2F0dSBzcGVzaWVzIChBIGJlbmFyKS4gQmVya3VyYW5nbnlhIHZhcmlhc2kgZ2VuIGtldGFoYW5hbiBha2liYXQgcGVueWVyYWdhbWFuIHZhcmlldGFzIHVuZ2d1bCBtZW5pbmdrYXRrYW4ga2VyZW50YW5hbiB0ZXJoYWRhcCBoYW1hL3Blbnlha2l0IChDIGJlbmFyKSwgc2VoaW5nZ2EgcGVsZXN0YXJpYW4gYmFuayBiZW5paCBsb2thbCBtZW5qYWRpIHVwYXlhIHBlbnRpbmcgdW50dWsgbWVtcGVydGFoYW5rYW4ga2VhbmVrYXJhZ2FtYW4gZ2VuIHRlcnNlYnV0IChEIGJlbmFyKS4gUGVybnlhdGFhbiBCIGtlbGlydSBrYXJlbmEga2VhbmVrYXJhZ2FtYW4gaGF5YXRpIG1lbmNha3VwIHRpZ2EgdGluZ2thdGFuLCB5YWl0dSBnZW4sIGplbmlzLCBkYW4gZWtvc2lzdGVtOyB2YXJpYXNpIGFudGFydmFyaWV0YXMgZGFsYW0gc2F0dSBzcGVzaWVzIHRldGFwIHRlcmdvbG9uZyBrZWFuZWthcmFnYW1hbiB0aW5na2F0IGdlbi4gUGVybnlhdGFhbiBFIGtlbGlydSBrYXJlbmEgcmVuZGFobnlhIGtlYW5la2FyYWdhbWFuIGdlbmV0aWsganVzdHJ1IG1lbmluZ2thdGthbiBrZXJlbnRhbmFuIHByb2R1a3NpIHBhbmdhbiB0ZXJoYWRhcCBnYW5nZ3VhbiAoaGFtYSwgcGVueWFraXQsIHBlcnViYWhhbiBpa2xpbSksIHNlaGluZ2dhIGJlcnBvdGVuc2kgbWVuZ2FuY2FtIGtldGFoYW5hbiBwYW5nYW4gamFuZ2thIHBhbmphbmcuIn0sICIzIjogeyJhIjogWyJBIiwgIkMiLCAiRSJdLCAiZSI6ICJDaXJpLWNpcmkgcGFkYSBzb2FsIChrdWxpdCBsaWNpbiBiZXJsZW5kaXIsIHBlcm5hcGFzYW4gZ2FuZGEsIHBvaWtpbG90ZXJtLCBtZXRhbW9yZm9zaXMgZGFyaSBmYXNlIGFrdWF0aWsga2UgZGFyYXRhbikgc2VzdWFpIGRlbmdhbiBzZWx1cnVoIGNpcmkga2hhcyBrZWxhcyBBbXBoaWJpYSAoQSBkYW4gQyBiZW5hcikuIEtldGVyZ2FudHVuZ2FuIHBhZGEgbGluZ2t1bmdhbiBsZW1iYXAvcGVyYWlyYW4gdW50dWsgcmVwcm9kdWtzaSBtZW51bmp1a2thbiBBbXBoaWJpYSBiZWx1bSBzZXBlbnVobnlhIGJlcmFkYXB0YXNpIGRlbmdhbiBrZWhpZHVwYW4gZGFyYXQgKEUgYmVuYXIpLiBQZXJueWF0YWFuIEIga2VsaXJ1IGthcmVuYSBwb2lraWxvdGVybSBqdXN0cnUgYmVyYXJ0aSBzdWh1IHR1YnVoIGJlcnViYWgtdWJhaCBtZW5naWt1dGkgc3VodSBsaW5na3VuZ2FuLCBidWthbiB0ZXRhcC4gUGVybnlhdGFhbiBEIGtlbGlydSBrYXJlbmEgQW1waGliaWEgdGV0YXAgdGVyZ29sb25nIHZlcnRlYnJhdGEgKG1lbWlsaWtpIHR1bGFuZyBiZWxha2FuZykgbWVza2lwdW4gcGVudXR1cCB0dWJ1aG55YSBiZXJ1cGEga3VsaXQgbGljaW4gYmVybGVuZGlyLCBidWthbiBzaXNpaywgYnVsdSwgYXRhdSByYW1idXQuIn0sICI0IjogeyJhIjogWyJBIiwgIkIiLCAiQyIsICJFIl0sICJlIjogIktldGlnYSBqZW5pcyBrYXRhayB0ZXJzZWJ1dCBiZXJhZGEgZGFsYW0gZ2VudXMgTGltbm9uZWN0ZXMgeWFuZyBzYW1hIG5hbXVuIGJlcnN0YXR1cyBzcGVzaWVzIGJlcmJlZGEsIHNlc3VhaSBrYWlkYWggYmlub21pYWwgbm9tZW5rbGF0dXIgKG5hbWEgZ2VudXMgKyBwZW51bmp1ayBzcGVzaWVzKSAoQSBiZW5hcikuIEZlbm9tZW5hIHNwZXNpZXMga3JpcHRpayBtZW5lZ2Fza2FuIGJhaHdhIGtlbWlyaXBhbiBtb3Jmb2xvZ2kgdGlkYWsgc2VsYWx1IG1lbmNlcm1pbmthbiBzdGF0dXMgc3Blc2llcyB5YW5nIHNlc3VuZ2d1aG55YSAoQiBiZW5hciksIHNlaGluZ2dhIGtvbWJpbmFzaSBkYXRhIG1vcmZvbG9naSBkYW4gZ2VuZXRpayBtZW5qYWRpIHBlbnRpbmcgZGFsYW0gcGVuZW50dWFuIHN0YXR1cyB0YWtzb25vbWkgKEMgYmVuYXIpLiBQZW5hbWFhbiBudXNhbnRhcmEgcGFkYSBlcGl0ZXQgc3Blc2llcyBtZW5jZXJtaW5rYW4ga2VsYXppbWFuIHBlbmFtYWFuIGJlcmRhc2Fya2FuIGFzYWwgd2lsYXlhaCAoRSBiZW5hcikuIFBlcm55YXRhYW4gRCBrZWxpcnUga2FyZW5hIGJ1a3RpIGdlbmV0aWsgbWVudW5qdWtrYW4gYmFod2Ega2V0aWdhIHBvcHVsYXNpIHRlcnNlYnV0IG1lbWFuZyBiZXJiZWRhIHNlY2FyYSBiaW9sb2dpczsg4oCca2VzZWRlcmhhbmFhbiBrbGFzaWZpa2FzaeKAnSBidWthbiBwcmluc2lwIGlsbWlhaCB5YW5nIHNhaGloIHVudHVrIG1lbnlhdHVrYW4gc3Blc2llcyB5YW5nIHRlbGFoIHRlcmJ1a3RpIGJlcmJlZGEuIn0sICI1IjogeyJhIjogWyJBIiwgIkIiLCAiQyJdLCAiZSI6ICJSaGl6b3B1cyBvcnl6YWUgZGlnb2xvbmdrYW4ga2UgZGFsYW0gWnlnb215Y290YSBrYXJlbmEgaGlmYSB0aWRhayBiZXJzZWthdCBkYW4gbWVuZ2hhc2lsa2FuIHppZ29zcG9yYSAoQSBiZW5hcikuIERldXRlcm9teWNvdGEgZGlzZWJ1dCBqYW11ciB0aWRhayBzZW1wdXJuYSBrYXJlbmEgcmVwcm9kdWtzaSBzZWtzdWFsbnlhIGJlbHVtL3RpZGFrIHRlcmFtYXRpIChCIGJlbmFyKS4gQmFzaWRpb3Nwb3JhIHBhZGEgc3RydWt0dXIgYmFzaWRpdW0gbWVydXBha2FuIGNpcmkga2hhcyByZXByb2R1a3NpIHNla3N1YWwgQmFzaWRpb215Y290YSwgc2VwZXJ0aSBqYW11ciBtZXJhbmcgKEMgYmVuYXIpLiBQZXJueWF0YWFuIEQga2VsaXJ1IGthcmVuYSB0aWRhayBzZWx1cnVoIGphbXVyIHBhZGEgdGFiZWwgbWVydWdpa2FuOyBSaGl6b3B1cyBvcnl6YWUgZGFuIFNhY2NoYXJvbXljZXMgY2VyZXZpc2lhZSBqdXN0cnUgYmVybWFuZmFhdCBkYWxhbSBmZXJtZW50YXNpIG1ha2FuYW4uIFBlcm55YXRhYW4gRSBrZWxpcnUga2FyZW5hIGhpZmEgdGlkYWsgYmVyc2VrYXQgKHNlbm9zaXRpaykganVzdHJ1IGJlcmFydGkgYmFueWFrIGludGkgc2VsIGJlcmJhZ2kgc2l0b3BsYXNtYSB5YW5nIG1lbnlhdHUgdGFucGEgc2VrYXQgcGVtaXNhaCBhbnRhcnNlbCwgYnVrYW4gdGVycGlzYWggamVsYXMgc2VwZXJ0aSB5YW5nIGRpbnlhdGFrYW4uIn0sICI2IjogeyJhIjogWyJBIiwgIkIiLCAiRCJdLCAiZSI6ICJDaXJpIHBlbWJlbnR1a2FuIHNwb3JhIHNla3N1YWwgZGkgZGFsYW0gYXNrdXMgbWVuamFkaWthbiBNb3JjaGVsbGEgcmluamFuaWVuc2lzIHRlcmdvbG9uZyBBc2NvbXljb3RhIChBIGJlbmFyKS4gUGVuZW11YW4gbW9yZWwgdHJvcGlzIHBlcnRhbWEgaW5pIG1lbXBlcmx1YXMgcGVuZ2V0YWh1YW4gbWVuZ2VuYWkgc2ViYXJhbiBnZW9ncmFmaXMgZ2VudXMgTW9yY2hlbGxhIHlhbmcgc2ViZWx1bW55YSBkaWFuZ2dhcCB0ZXJiYXRhcyBwYWRhIHdpbGF5YWggYmVyaWtsaW0gc2VkYW5nIChCIGJlbmFyKSwgc2VrYWxpZ3VzIG1lbmVnYXNrYW4gYmFod2Ega2F3YXNhbiBwZWd1bnVuZ2FuIHRyb3BpcyBJbmRvbmVzaWEgbWFzaWggbWVueWltcGFuIGtlYW5la2FyYWdhbWFuIG1pa3Jvb3JnYW5pc21lIHlhbmcgYmVsdW0gc2VsdXJ1aG55YSB0ZXJkb2t1bWVudGFzaWthbiAoRCBiZW5hcikuIFBlcm55YXRhYW4gQyBrZWxpcnUga2FyZW5hIGRpdGVtdWthbm55YSBqZW5pcyBiYXJ1IGRpIGhhYml0YXQgYmVyYmVkYSBidWthbiBtZXJ1cGFrYW4g4oCccGVueWltcGFuZ2FuIGtsYXNpZmlrYXNp4oCdLCBtZWxhaW5rYW4gcGVybHVhc2FuIHBlbmdldGFodWFuIG1lbmdlbmFpIHZhcmlhc2kgZGFuIHNlYmFyYW4gc3VhdHUgZ2VudXMuIFBlcm55YXRhYW4gRSBrZWxpcnUga2FyZW5hIHNwZXNpZXMgdGVyc2VidXQgdGV0YXAgdGVybWFzdWsgZ2VudXMgTW9yY2hlbGxhICh0ZXJjZXJtaW4gZGFyaSBuYW1hIGlsbWlhaG55YSkgZGFuIHRldGFwIG1lbWlsaWtpIGtla2VyYWJhdGFuIHRha3Nvbm9taSBkZW5nYW4gYW5nZ290YSBnZW51cyBsYWlubnlhLiJ9LCAiNyI6IHsiYSI6IFsiQSIsICJCIiwgIkMiLCAiRSJdLCAiZSI6ICJGYXVuYSBBc2lhdGlzIGRpIGJhcmF0IGdhcmlzIFdhbGxhY2UgbWVueWVydXBhaSBmYXVuYSBBc2lhLCBzZXBlcnRpIGdhamFoLCBoYXJpbWF1LCBkYW4gYmFkYWsgYmVyY3VsYSBzYXR1IChBIGJlbmFyKS4gR2FyaXMgV2FsbGFjZSBtZW1pc2Foa2FuIHpvbmEgQXNpYXRpcyBkYW4gcGVyYWxpaGFuLCBzZWRhbmdrYW4gZ2FyaXMgV2ViZXIgbWVtaXNhaGthbiB6b25hIHBlcmFsaWhhbiBkYW4gQXVzdHJhbGlzIChCIGJlbmFyKS4gWm9uYSBwZXJhbGloYW4gbWVtaWxpa2kgZmF1bmEgZW5kZW1payBraGFzIHNlcGVydGkgYW5vYSwgYmFiaXJ1c2EsIGRhbiBrb21vZG8geWFuZyB0aWRhayBkaXRlbXVrYW4gZGkgZHVhIHpvbmEgbGFpbm55YSAoQyBiZW5hcikuIEZhdW5hIEF1c3RyYWxpcyBkaSB0aW11ciBnYXJpcyBXZWJlciBtZW55ZXJ1cGFpIGZhdW5hIEF1c3RyYWxpYSwgc2VwZXJ0aSBrYW5ndXJ1IHBvaG9uIGRhbiBjZW5kcmF3YXNpaCAoRSBiZW5hcikuIFBlcm55YXRhYW4gRCBrZWxpcnUga2FyZW5hIHdpbGF5YWggdGltdXIgZ2FyaXMgV2ViZXIganVzdHJ1IHRlcmdvbG9uZyB6b25hIEF1c3RyYWxpcywgYnVrYW4gQXNpYXRpcy4ifSwgIjgiOiB7ImEiOiBbIkEiLCAiQiIsICJDIiwgIkUiXSwgImUiOiAiRGF0YSBncmFmaWsgbWVudW5qdWtrYW4gcG9wdWxhc2kgb3Jhbmd1dGFuIEthbGltYW50YW4gbWVudXJ1biBkYXJpIHNla2l0YXIgMjg4LjUwMCAoMTk3MykgbWVuamFkaSBzZWtpdGFyIDEwNC43MDAgaW5kaXZpZHUgKDIwMTIpLCBsZWJpaCBkYXJpIHNlcGFydWggcG9wdWxhc2kgYXdhbCBkYWxhbSBzZWtpdGFyIGVtcGF0IGRla2FkZSAoQSBiZW5hcikuIFBlbmV0YXBhbiBvcmFuZ3V0YW4gVGFwYW51bGkgc2ViYWdhaSBzcGVzaWVzIHRlcnNlbmRpcmkgcGFkYSAyMDE3IG1lbnVuanVra2FuIGtsYXNpZmlrYXNpIHRha3NvbiBiZXJzaWZhdCBkaW5hbWlzIG1lbmdpa3V0aSBidWt0aSBpbG1pYWggYmFydSAoQiBiZW5hcikuIFN0YXR1cyBrcml0aXMga2V0aWdhIHNwZXNpZXMgYWtpYmF0IGRlZ3JhZGFzaSBoYWJpdGF0IG1lbmVnYXNrYW4gdXJnZW5zaSBrb25zZXJ2YXNpIChDIGJlbmFyKSwgZGFuIGtlYmVyYWRhYW4gdGlnYSBzcGVzaWVzIGJlcmJlZGEgZGFsYW0gZ2VudXMgUG9uZ28gbWVuY2VybWlua2FuIGtlYW5la2FyYWdhbWFuIGhheWF0aSB0aW5na2F0IGplbmlzIChFIGJlbmFyKS4gUGVybnlhdGFhbiBEIGtlbGlydSBrYXJlbmEgcGVtaXNhaGFuIG1lbmphZGkgc3Blc2llcyBiZXJiZWRhIGRpZGFzYXJrYW4gcGFkYSBidWt0aSBpbG1pYWggZ2VuZXRpayBkYW4gbW9yZm9sb2dpIHlhbmcga3VhdCwgYnVrYW4gc2VrYWRhciBtZW1wZXJzdWxpdCB0YXRhIG5hbWEuIn0sICI5IjogeyJhIjogWyJBIiwgIkMiLCAiRCIsICJFIl0sICJlIjogIlNlYmFnaWFuIGJlc2FyIHR1bWJ1aGFuIHBhZGEgdGFiZWwgdGVyYW5jYW0gYWtpYmF0IGVrc3Bsb2l0YXNpIGJlcmxlYmloYW4gYmFnaWFuIHR1bWJ1aGFuIHNlcGVydGkgYWthciAoQSBiZW5hcikuIFB1cndvY2VuZyBsZWJpaCB0ZXJhbmNhbSBkaWJhbmRpbmdrYW4gcGFzYWsgYnVtaSBrYXJlbmEgd2lsYXlhaCBwZXJzZWJhcmFuIGFsYW1pbnlhIHlhbmcgc2FuZ2F0IHRlcmJhdGFzLCB5YWl0dSBoYW55YSBkaSBkYXRhcmFuIHRpbmdnaSBEaWVuZyAoQyBiZW5hcikuIEJ1ZGkgZGF5YSBkYW4gZG9tZXN0aWthc2kgZGFwYXQgbWVuZ3VyYW5naSB0ZWthbmFuIGVrc3Bsb2l0YXNpIHRlcmhhZGFwIHBvcHVsYXNpIGFsYW1pIChEIGJlbmFyKSwgZGFuIGtlYmVyYWRhYW4gdHVtYnVoYW4tdHVtYnVoYW4gdGVyc2VidXQgbWVuY2VybWlua2FuIGtlYW5la2FyYWdhbWFuIGhheWF0aSB0aW5na2F0IGplbmlzIHNlcnRhIHBlbnRpbmdueWEga29uc2VydmFzaSBmbG9yYSBlbmRlbWlrIChFIGJlbmFyKS4gUGVybnlhdGFhbiBCIGtlbGlydSBrYXJlbmEganVzdHJ1IG5pbGFpIGtlZ3VuYWFuIHlhbmcgdGluZ2dpIHNlcmluZyBrYWxpIG1lbmRvcm9uZyBla3NwbG9pdGFzaSBiZXJsZWJpaGFuIHlhbmcgbWVuZ2FuY2FtIGtlbGVzdGFyaWFuIHN1YXR1IGplbmlzIHR1bWJ1aGFuLCBidWthbiBtZW5qYW1pbm55YSBkYXJpIGtlcHVuYWhhbi4ifSwgIjEwIjogeyJhIjogWyJBIiwgIkIiLCAiRCIsICJFIl0sICJlIjogIkJlcmRhc2Fya2FuIGdyYWZpaywga2Vsb21wb2sgZmF1bmEgKDMyIHNwZXNpZXMpIG1lbnl1bWJhbmcgdGVtdWFuIHRlcmJhbnlhayBkaWJhbmRpbmdrYW4gZmxvcmEgKDE2KSBkYW4gbWlrcm9iYSAoMykgKEEgYmVuYXIpLiBTZXRpYXAgc3Blc2llcyBiYXJ1IGRpYmVyaSBuYW1hIGlsbWlhaCBkdWEga2F0YSBzZXN1YWkgYmlub21pYWwgbm9tZW5rbGF0dXIgKGdlbnVzICsgcGVudW5qdWsgc3Blc2llcykgKEIgYmVuYXIpLiBCYW55YWtueWEgdGVtdWFuIGRhcmkgYmVyYmFnYWkgcHVsYXUgbWVuZWdhc2thbiBzdGF0dXMgSW5kb25lc2lhIHNlYmFnYWkgbmVnYXJhIG1lZ2FiaW9kaXZlcnNpdGFzIChEIGJlbmFyKSwgZGFuIHBlbnVsaXNhbiBuYW1hIGlsbWlhaCBtZW5nZ3VuYWthbiBodXJ1ZiBtaXJpbmcgZGVuZ2FuIGh1cnVmIGF3YWwgZ2VudXMgYmVyaHVydWYga2FwaXRhbCAoRSBiZW5hcikuIFBlcm55YXRhYW4gQyBrZWxpcnUga2FyZW5hIHRpbmdnaW55YSBqdW1sYWggc3Blc2llcyBiYXJ1IHlhbmcgZGl0ZW11a2FuIGp1c3RydSBtZW51bmp1a2thbiBiYWh3YSBkb2t1bWVudGFzaSBrZWFuZWthcmFnYW1hbiBoYXlhdGkgSW5kb25lc2lhIG1hc2loIGphdWggZGFyaSBsZW5na2FwIGRhbiBtZW1lcmx1a2FuIGVrc3Bsb3Jhc2kgbGViaWggbGFuanV0LiJ9fQ==";
+const G=[["PLANTAE",[1,2,9]],["ANIMALIA",[3,4,7,8]],["FUNGI",[5,6]],["KLASIFIKASI & TATA NAMA",[4,10]]];
+const CH={
+2:{title:"Penurunan Jumlah Varietas Padi Lokal di Suatu Wilayah Sentra Pertanian, 1980–2025 (data ilustratif)",y:"Jumlah varietas padi lokal yang dibudidayakan",x:"Tahun",d:[["1980",230],["1990",180],["2000",120],["2010",70],["2020",40],["2025",25]],max:250,step:50},
+8:{title:"Estimasi Populasi Orangutan Kalimantan (Pongo pygmaeus)",y:"Estimasi populasi (individu)",x:"Tahun",d:[["1973",288500],["2012",104700]],max:300000,step:100000},
+10:{title:"Sebaran Temuan Spesies Baru PRBE BRIN Tahun 2025",y:"Jumlah spesies",x:"Kelompok organisme",d:[["Flora",16],["Fauna",32],["Mikroba",3]],max:35,step:5}
+};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const nf=n=>n.toLocaleString("id-ID");
+let st={name:"",kelas:"",sekolah:"",ans:{},cur:0,res:null};
+try{const s=JSON.parse(localStorage.getItem("tka26_id")||"{}");["name","kelas","sekolah"].forEach(k=>{if(s[k])st[k]=s[k]})}catch(e){}
+
+function go(id){document.querySelectorAll(".screen").forEach(s=>s.classList.toggle("on",s.id===id));window.scrollTo(0,0);if(id==="s-id"){$("#i-n").value=st.name;$("#i-k").value=st.kelas;$("#i-s").value=st.sekolah;$("#i-e").textContent=""}}
+function openDev(){$("#m-dev").classList.add("on")}
+function closeM(id){$("#"+id).classList.remove("on")}
+function confirmBox(t,p,okT,noT,cb){$("#cf-t").textContent=t;$("#cf-p").textContent=p;$("#cf-ok").textContent=okT;$("#cf-no").textContent=noT;$("#cf-ok").onclick=()=>{closeM("m-cf");cb()};$("#cf-no").onclick=()=>closeM("m-cf");$("#m-cf").classList.add("on")}
+function toast(){const t=$("#toast");t.classList.add("show");clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove("show"),1300)}
+
+// heliks DNA dekoratif
+(function(){let s="";for(let i=0;i<16;i++){const y=14+i*19,p=i/16*Math.PI*2*1.5,x1=100+Math.sin(p)*62,x2=100-Math.sin(p)*62,o=.35+.65*Math.abs(Math.cos(p));s+=`<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" stroke="#22d3ee" stroke-width="2" opacity=".5"/><circle class="s" style="animation-delay:${-i*.35}s" cx="${x1}" cy="${y}" r="${5+3*Math.cos(p)}" fill="#0f9d6e" opacity="${o}"/><circle class="s" style="animation-delay:${-i*.35}s" cx="${x2}" cy="${y}" r="${5-3*Math.cos(p)}" fill="#0e8b95" opacity="${o}"/>`}$("#helix").innerHTML=s})();
+
+function startQ(){
+const n=$("#i-n").value.trim(),k=$("#i-k").value.trim(),s=$("#i-s").value.trim();
+if(!n||!k||!s){$("#i-e").textContent="Mohon lengkapi nama, kelas, dan asal sekolah.";return}
+st.name=n;st.kelas=k;st.sekolah=s;st.ans={};st.cur=0;st.res=null;
+try{localStorage.setItem("tka26_id",JSON.stringify({name:n,kelas:k,sekolah:s}))}catch(e){}
+renderQ();go("s-quiz")}
+
+function chartHTML(c){
+const ticks=[];for(let v=0;v<=c.max;v+=c.step)ticks.push(v);
+return `<div class="fig"><h4>${esc(c.title)}</h4><div class="ch"><div class="yl">${esc(c.y)}</div><div class="pl">${ticks.slice(1).map(v=>`<div class="gl" style="bottom:${v/c.max*100}%"><span>${nf(v)}</span></div>`).join("")}${c.d.map(r=>`<div class="bc"><em>${nf(r[1])}</em><i data-h="${r[1]/c.max*100}"></i></div>`).join("")}</div><div class="xl">${c.d.map(r=>`<span>${r[0]}</span>`).join("")}</div><div class="xt">${esc(c.x)}</div></div>`}
+function zonesHTML(){return `<div class="fig"><h4>Skema Pembagian Wilayah Fauna Indonesia Berdasarkan Garis Wallace dan Garis Weber (skema ilustratif, bukan peta geografis presisi)</h4><div class="zl"><span></span><span style="color:#c0533a">Garis Wallace ┆</span><span style="color:#2d4a86">┆ Garis Weber</span></div><div class="zones"><div class="zn z1"><h5>ZONA ASIATIS</h5><small>(Sumatra, Jawa, Kalimantan, Bali)</small><div>• Gajah sumatra</div><div>• Harimau sumatra</div><div>• Badak bercula satu</div><div>• Orangutan</div></div><div class="zn z2"><h5>ZONA PERALIHAN</h5><small>(Sulawesi, Nusa Tenggara, Maluku)</small><div>• Anoa</div><div>• Babirusa</div><div>• Komodo</div><div>• Maleo</div></div><div class="zn z3"><h5>ZONA AUSTRALIS</h5><small>(Papua dan pulau-pulau sekitarnya)</small><div>• Kanguru pohon</div><div>• Cendrawasih</div><div>• Kasuari</div><div>• Walabi</div></div></div>`}
+function stimHTML(q){return q.stimulus.map(b=>{
+if(b.t==="p")return `<p class="stim">${esc(b.text)}</p>`;
+if(b.t==="table")return `<div class="tw"><table><thead><tr>${b.rows[0].map(c=>`<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>${b.rows.slice(1).map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+if(b.t==="fig"){const v=q.id===7?zonesHTML():CH[q.id]?chartHTML(CH[q.id]):"";return `${v}<div class="cap">${esc(b.cap)}</div></div>`}
+return ""}).join("")}
+
+function renderQ(){
+const q=Q[st.cur],a=st.ans[q.id]||[];
+$("#q-card").innerHTML=`<div class="qn">SOAL ${String(q.id).padStart(2,"0")}</div><h3 class="qt">${esc(q.topic)}</h3>${stimHTML(q)}<div class="qq">${esc(q.question)}</div><div class="hint">Petunjuk: Pilihlah SEMUA jawaban yang benar! Jawaban benar dapat lebih dari satu (pilihan ganda kompleks).</div>${q.options.map(o=>`<label class="opt${a.includes(o.id)?" on":""}"><input type="checkbox" value="${o.id}"${a.includes(o.id)?" checked":""}><span class="bx">✓</span><span><b>${o.id}.</b> ${esc(o.text)}</span></label>`).join("")}<div class="saved" id="sv">✓ Jawaban Anda telah disimpan.</div><div class="qnav"><button class="btn" onclick="mv(-1)"${st.cur===0?" disabled":""}>← SEBELUMNYA</button>${st.cur<Q.length-1?`<button class="btn pri" onclick="mv(1)">BERIKUTNYA →</button>`:`<button class="btn pri" onclick="finish()">SELESAIKAN SIMULASI</button>`}</div>`;
+document.querySelectorAll("#q-card .opt input").forEach(i=>i.onchange=()=>{
+let cur=[...document.querySelectorAll("#q-card .opt input:checked")].map(x=>x.value);
+i.closest(".opt").classList.toggle("on",i.checked);
+if(cur.length)st.ans[q.id]=cur;else delete st.ans[q.id];
+$("#sv").classList.add("show");clearTimeout(renderQ.h);renderQ.h=setTimeout(()=>$("#sv")&&$("#sv").classList.remove("show"),1400);updNav()});
+requestAnimationFrame(()=>document.querySelectorAll("#q-card .bc i").forEach(e=>e.style.height=e.dataset.h+"%"));
+updNav()}
+function updNav(){
+const n=Object.keys(st.ans).length;
+$("#q-pos").textContent=`Soal ${st.cur+1} dari ${Q.length}`;
+$("#q-pct").textContent=`Progress ${Math.round(n/Q.length*100)}%`;
+$("#q-bar").style.width=n/Q.length*100+"%";
+$("#q-nav").innerHTML=Q.map((q,i)=>`<button class="${st.ans[q.id]?"ans ":""}${i===st.cur?"cur":""}" onclick="jump(${i})" aria-label="Soal ${q.id}${st.ans[q.id]?", sudah dijawab":", belum dijawab"}">${st.ans[q.id]?"● ":""}${q.id}</button>`).join("")}
+function mv(d){st.cur=Math.min(Q.length-1,Math.max(0,st.cur+d));renderQ();window.scrollTo(0,0)}
+function jump(i){st.cur=i;renderQ();window.scrollTo(0,0)}
+function finish(){
+const un=Q.length-Object.keys(st.ans).length;
+if(un>0)confirmBox("Konfirmasi","Masih ada soal yang belum dijawab. Apakah Anda yakin ingin menyelesaikan simulasi?","SELESAIKAN","KEMBALI KE SOAL",doFinish);else doFinish()}
+
+function grade(){
+const K=JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(K64),c=>c.charCodeAt(0))));
+return Q.map(q=>{const key=K[q.id].a,ch=(st.ans[q.id]||[]).slice().sort();return{q,key,ch,ok:ch.length===key.length&&key.every(x=>ch.includes(x)),exp:K[q.id].e}})}
+function doFinish(){
+const r=grade(),ok=r.filter(x=>x.ok).length;st.res={r,ok,score:ok/Q.length*100};renderRes();go("s-res")}
+function renderRes(){
+const {r,ok,score}=st.res;
+$("#r-name").textContent=st.name;$("#r-info").textContent=`${st.kelas} • ${st.sekolah}`;
+const cat=score>=90?["Sangat Baik","Hasil yang sangat baik. Pertahankan ketelitian Anda dalam menalar setiap stimulus."]:score>=80?["Baik","Hasil yang baik. Tinjau kembali pembahasan untuk menyempurnakan pemahaman Anda."]:score>=70?["Cukup Baik","Landasan yang cukup baik. Pelajari pembahasan untuk memperkuat bagian yang belum tepat."]:["Perlu Penguatan","Ini awal yang baik untuk belajar. Pelajari pembahasan, lalu coba lagi. Setiap latihan membantu penalaran Anda."];
+$("#r-cat").textContent=cat[0];$("#r-msg").textContent=cat[1];
+$("#r-stats").innerHTML=`<div class="stat"><b>${ok}</b><span>Jawaban benar dari ${Q.length} soal</span></div><div class="stat"><b>${Q.length-ok}</b><span>Belum tepat dari ${Q.length} soal</span></div><div class="stat"><b>${score}</b><span>Nilai (skala 100)</span></div>`;
+const fg=$("#r-fg");fg.style.strokeDashoffset=452;
+requestAnimationFrame(()=>setTimeout(()=>fg.style.strokeDashoffset=452*(1-score/100),60));
+let t0=null;const step=t=>{t0=t0||t;const p=Math.min(1,(t-t0)/1500),v=Math.round(score*p);$("#r-sc").textContent=v;$("#r-sc2").textContent=v;if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step);
+$("#r-an").innerHTML=G.map(([n,ids])=>{const c=ids.filter(i=>r[i-1].ok).length,p=Math.round(c/ids.length*100);return `<div class="an"><div class="l"><span>${n} <small class="leg">(Soal ${ids.join(", ")})</small></span><b>${c}/${ids.length} • ${p}%</b></div><div class="bar"><i style="width:${p}%"></i></div></div>`}).join("");
+$("#r-acc").innerHTML=r.map(x=>`<div class="acc"><button onclick="this.parentNode.classList.toggle('open')"><span>SOAL ${x.q.id} — Lihat Pembahasan</span><span>▼</span></button><div class="bd"><p><b>Jawaban benar:</b> ${x.key.join(", ")}</p><div class="pb"><b>Pembahasan:</b> ${esc(x.exp)}</div></div></div>`).join("")}
+function showReview(){
+$("#rv-list").innerHTML=st.res.r.map(x=>`<div class="rv"><div class="row" style="justify-content:space-between"><b>SOAL ${x.q.id}</b><span class="${x.ok?"okc":"nok"}">${x.ok?"✓ Benar":"✕ Belum tepat"}</span></div><p style="margin:8px 0"><b>${esc(x.q.topic)}</b><br>${esc(x.q.question)}</p>${x.q.options.map(o=>{const k=x.key.includes(o.id),p=x.ch.includes(o.id);return `<div class="o${k?" k":""}${p&&!k?" p":""}"><b>${o.id}.</b> ${esc(o.text)}<span class="tag">${p?"[Dipilih] ":""}${k?"[Jawaban benar]":""}</span></div>`}).join("")}<p style="margin:8px 0 0"><b>Jawaban yang dipilih:</b> ${x.ch.length?x.ch.join(", "):"—"} &nbsp;|&nbsp; <b>Jawaban benar:</b> ${x.key.join(", ")}</p><div class="pb"><b>Pembahasan:</b> ${esc(x.exp)}</div></div>`).join("");go("s-rev")}
+function askReset(){confirmBox("Ulangi Simulasi?","Semua jawaban dan skor sebelumnya akan dihapus, lalu Anda kembali ke halaman identitas.","YA, ULANGI","BATAL",()=>{st.ans={};st.cur=0;st.res=null;go("s-id")})}
+</script>
+</body>
+</html>
